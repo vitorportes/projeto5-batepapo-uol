@@ -1,29 +1,88 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/styleMain.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
 
     <title>Bate-papo UOL</title>
 </head>
-<body>
 
+<body>
     <header>
         <figure></figure>
         <section>
-
+            <ion-icon class="icon_user" name="person-sharp"></ion-icon>
+            <p class="username"></p>
+            <button onclick="sidebar(true)">
+                <ion-icon name="people-sharp"></ion-icon>
+            </button>
         </section>
     </header>
-
+    <main>
+    </main>
+    <footer>
+        <input type="text" placeholder="Escreva aqui...">
+        <button onclick="sendMessage()" data-identifier="send-message">
+            <ion-icon name="paper-plane-outline"></ion-icon>
+        </button>
+    </footer>
+    <div class="loginScreen">
+        <figure></figure>
+        <article class="login">
+            <input type="text" placeholder="Digite seu nome" data-identifier="enter-name">
+            <button onclick="loginUser()" data-identifier="start">Entrar</button>
+        </article>
+        <article class="loading hide">
+            <figure></figure>
+            <figcation>Entrando...</figcation>
+        </article>
+    </div>
+    <div class="sidebar hide">
+        <div class="background" onclick="sidebar(false)"></div>
+        <nav>
+            <section class="contacts">
+                <header>Escolha um contato para enviar mensagem:</header>
+                <ul>
+                </ul>
+            </section>
+            <section class="visibility">
+                <header>Escolha a visibilidade:</header>
+                <ul>
+                    <li id="message" onclick="messageVisibility(this)" identifier="visibility">
+                        <i>
+                            <ion-icon name="lock-open"></ion-icon>
+                            <p>Público</p>
+                        </i>
+                        <ion-icon class="check selected" name="checkmark-sharp"></ion-icon>
+                    </li>
+                    <li id="private_message" onclick="messageVisibility(this)" identifier="visibility">
+                        <i>
+                            <ion-icon name="lock-closed"></ion-icon>
+                            <p>Reservado</p>
+                        </i>
+                        <ion-icon class="check" name="checkmark-sharp"></ion-icon>
+                    </li>
+                </ul>
+            </section>
+        </nav>
+    </div>
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- script -->
+    <script src="./script/scripts.js"></script>
+    <!-- ion-icon -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
+
 </html>
